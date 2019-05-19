@@ -1,10 +1,8 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHr Lpr lfr">
     <q-layout-header>
       <q-toolbar
-        color="primary"
-        :glossy="$q.theme === 'mat'"
-        :inverted="$q.theme === 'ios'"
+        color="green"
       >
         <q-btn
           flat
@@ -25,14 +23,18 @@
 
     <q-layout-drawer
       v-model="leftDrawerOpen"
-      :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
+      content-class="bg-amber-3"
+      id="sidebar"
     >
       <q-list
         no-border
         link
         inset-delimiter
       >
-        <q-list-header>Essential Links</q-list-header>
+        <q-item>
+          <img src="~assets/logo.png" alt="">
+        </q-item>
+        <q-list-header>O que você quer fazer</q-list-header>
         <q-item to="">
           <q-item-side icon="search" />
           <q-item-main label="Quero pedir" sublabel="Busque por restaurantes e faça um pedido" />
@@ -76,4 +78,15 @@ export default {
 </script>
 
 <style>
+  #sidebar .q-item.router-link-active {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  #sidebar .q-item.router-link-active:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  #sidebar .q-item img {
+    width: 94%;
+    height: 120px;
+    padding: 3% 0;
+  }
 </style>
